@@ -6,3 +6,15 @@ try {
 } catch (Exception $e) {
     echo 'Erreur de connexion a la base de donnees';
 }
+
+
+function recherche($param){
+    global $pdo;
+
+}
+
+function detail($id){
+    // SELECT * FROM `movie` WHERE `mov_id`= 1
+    
+    // return un ligne; (fetch()));
+}

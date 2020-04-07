@@ -1,5 +1,5 @@
 <?php
 
-$title = 'Accueil';
+$title = 'Categories';
 
 require_once '../template.php';

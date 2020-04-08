@@ -8,9 +8,17 @@ try {
 }
 
 
-function recherche($param){
+
+/**
+ * recherche
+ */
+function search($title)
+{
     global $pdo;
 
+    $request = $pdo->prepare("SELECT * FROM movie WHERE title LIKE ':title%'");
+    $request->execute([':title'=> $title]);
+    return $request->fetchAll();
 }
 
 // return le detail d'un film

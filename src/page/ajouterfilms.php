@@ -43,7 +43,7 @@ $cat = category();
     <label for="Category">Selectionne Category</label>
     <select class="form-control" name="idCategory" id="Category">
       <?php foreach($cat as $value):?>
-      <option value='<?=$value['cat_id'];?>' <?php if($film['category_cat_id'] == $value['cat_id'] ){echo 'selected';} ?>><?=$value['cat_name'];?></option>
+      <option value='<?=$value['cat_id'];?>' <?php if(isset($film['category_cat_id']) && $film['category_cat_id'] == $value['cat_id'] ){echo 'selected';} ?>><?=$value['cat_name'];?></option>
       <?php endforeach;?>
     </select>
   </div>
@@ -59,4 +59,3 @@ $cat = category();
 
 <?php
 $content = ob_get_clean();
-require_once '../template.php';

@@ -7,3 +7,5 @@ if (!preg_match('/^[a-zA-Z_]*$/', $page)) {
     $page = 'accueil';
 }
 require_once "./../src/page/$page.php";
+
+require_once '../template.php';

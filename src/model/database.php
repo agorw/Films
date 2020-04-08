@@ -12,12 +12,10 @@ try {
 /**
  * recherche
  */
-function search($title)
-{
+function search($title){
     global $pdo;
-
-    $request = $pdo->prepare("SELECT * FROM movie WHERE title LIKE ':title%'");
-    $request->execute([':title'=> $title]);
+    $request = $pdo->prepare("SELECT * FROM movie WHERE mov_title LIKE :title ");
+    $request->execute([':title' => $title.'%']);
     return $request->fetchAll();
 }
 

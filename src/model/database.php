@@ -13,11 +13,17 @@ function recherche($param){
 
 }
 
+// return le detail d'un film
 function detail($id){
     // SELECT * FROM `movie` WHERE `mov_id`= 1
-    
+    global $pdo;
+    $request = $pdo->prepare('SELECT * FROM `movie` WHERE `mov_id`= ?');
+    $request->execute([$id]);
+    return $request->fetch();
     // return un ligne; (fetch()));
 }
+
+// ajoute un film a notre base de donnee
 function addFilm($title,$poster,$actors,$plot,$files,$device,$idCategory){
     global $pdo;
     $request = $pdo->prepare('INSERT INTO `movie` (`mov_id`, `mov_title`, `mov_poster`, `mov_actors`, `mov_plot`, `mov_file_path`, `mov_device`, `category_cat_id`) 
@@ -32,6 +38,31 @@ function addFilm($title,$poster,$actors,$plot,$files,$device,$idCategory){
         ':idcategory'=>$idCategory
     ]);
 }
+
+// mais a jour un film modifier.
+function updateFilm($id,$title,$poster,$actors,$plot,$files,$device,$idCategory){
+    global $pdo;
+    $request = $pdo->prepare('UPDATE `movie` SET 
+    `mov_title` = :title,
+    `mov_poster` = :poster,
+    `mov_actors`= :actors,
+    `mov_plot`=:plot,
+    `mov_file_path`=:files,
+    `mov_device`=:device,
+    `category_cat_id`=:idcategory
+    WHERE `movie`.`mov_id` = :id;');
+    $request->execute([
+        ':title'=> $title, 
+        ':poster'=>$poster, 
+        ':actors'=>$actors, 
+        ':plot'=>$plot, 
+        ':files'=>$files, 
+        ':device'=>$device, 
+        ':idcategory'=>$idCategory,
+        ':id'=>$id
+    ]);
+}
+// return la liste des categories et leur id
 function category(){
     global $pdo;
     $request = $pdo->query('SELECT * FROM `category`');

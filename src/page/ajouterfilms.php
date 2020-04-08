@@ -17,11 +17,11 @@ $cat = category();
 <form action="" method="POST">
 <div class="form-group">
     <label for="title">mov_title</label>
-    <input type="text" class="form-control" name="title" id="title" placeholder="mov_title" value="<?= $film['mov_title']??'';  ?>">
+    <input type="text" class="form-control" name="title" id="title" placeholder="title" value="<?= $film['mov_title']??'';  ?>">
   </div>
   <div class="form-group">
     <label for="poster">poster</label>
-    <input type="text" class="form-control" name="poster" id="poster" placeholder="mov_poster" value="<?= $film['mov_poster']??'';  ?>">
+    <input type="text" class="form-control" name="poster" id="poster" placeholder="poster" value="<?= $film['mov_poster']??'';  ?>">
   </div>
   <div class="form-group">
     <label for="actors">actors</label>
@@ -29,7 +29,7 @@ $cat = category();
   </div>
   <div class="form-group">
     <label for="plot">plot</label>
-    <input type="text" class="form-control" name="plot" id="plot" placeholder="mov_plot" value="<?= $film['mov_plot']??'';  ?>">
+    <input type="text" class="form-control" name="plot" id="plot" placeholder="plot" value="<?= $film['mov_plot']??'';  ?>">
   </div>
   <div class="form-group">
     <label for="file">file</label>
@@ -37,7 +37,7 @@ $cat = category();
   </div>
   <div class="form-group">
     <label for="device">device</label>
-    <input type="text" class="form-control" name="device" id="device" placeholder="mov_device" value="<?= $film['mov_device']??'';  ?>">
+    <input type="text" class="form-control" name="device" id="device" placeholder="device" value="<?= $film['mov_device']??'';  ?>">
   </div>
   <div class="form-group">
     <label for="Category">Selectionne Category</label>

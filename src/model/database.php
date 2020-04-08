@@ -18,3 +18,22 @@ function detail($id){
     
     // return un ligne; (fetch()));
 }
+function addFilm($title,$poster,$actors,$plot,$files,$device,$idCategory){
+    global $pdo;
+    $request = $pdo->prepare('INSERT INTO `movie` (`mov_id`, `mov_title`, `mov_poster`, `mov_actors`, `mov_plot`, `mov_file_path`, `mov_device`, `category_cat_id`) 
+    VALUES (NULL, :title, :poster, :actors, :plot, :files, :device, :idcategory);');
+    $request->execute([
+        ':title'=> $title, 
+        ':poster'=>$poster, 
+        ':actors'=>$actors, 
+        ':plot'=>$plot, 
+        ':files'=>$files, 
+        ':device'=>$device, 
+        ':idcategory'=>$idCategory
+    ]);
+}
+function category(){
+    global $pdo;
+    $request = $pdo->query('SELECT * FROM `category`');
+    return $request->fetchAll();
+}

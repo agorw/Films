@@ -1,54 +1,51 @@
 <?php
 
 $title = 'Ajouter Film';
-$ombdKey = 'a76f9717';
-$movieTitle = 'GhostBusters';
-
-// Appel de l'api
-$resultJson = file_get_contents("http://www.omdbapi.com/?apikey=$ombdKey&t=$movieTitle");
-// transforme une chaîne content du JSON en tableau (le true en deuxième paramètre indique qu'on veut un tableau PHP)
-$result = json_decode($resultJson, true);
 ob_start();
+if(isset($_POST['title'])){
+  addFilm($_POST['title'],$_POST['poster'],$_POST['actors'],$_POST['plot'],$_POST['files'],$_POST['device'],$_POST['idCategory']);
+}
+$cat = category();
 ?>
-<form>
+<form action="" method="POST">
 <div class="form-group">
     <label for="title">mov_title</label>
-    <input type="text" class="form-control" id="title" placeholder="mov_title">
+    <input type="text" class="form-control" name="title" id="title" placeholder="mov_title">
   </div>
   <div class="form-group">
     <label for="poster">poster</label>
-    <input type="text" class="form-control" id="poster" placeholder="mov_title">
+    <input type="text" class="form-control" name="poster" id="poster" placeholder="mov_title">
   </div>
   <div class="form-group">
     <label for="actors">actors</label>
-    <input type="text" class="form-control" id="actors" placeholder="actors">
+    <input type="text" class="form-control" name="actors" id="actors" placeholder="actors">
   </div>
   <div class="form-group">
     <label for="plot">plot</label>
-    <input type="text" class="form-control" id="plot" placeholder="mov_title">
+    <input type="text" class="form-control" name="plot" id="plot" placeholder="mov_title">
   </div>
   <div class="form-group">
     <label for="file">file</label>
-    <input type="text" class="form-control" id="file" placeholder="file">
+    <input type="text" class="form-control" name="files" id="files" placeholder="file">
   </div>
   <div class="form-group">
     <label for="device">device</label>
-    <input type="text" class="form-control" id="device" placeholder="mov_title">
+    <input type="text" class="form-control" name="device" id="device" placeholder="mov_title">
   </div>
   <div class="form-group">
     <label for="Category">Selectionne Category</label>
-    <select multiple class="form-control" id="Category">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <select class="form-control" name="idCategory" id="Category">
+      <?php foreach($cat as $value):?>
+      <option value='<?=$value['cat_id'];?>'><?=$value['cat_name'];?></option>
+      <?php endforeach;?>
     </select>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success" type="submit">Enregistre</button>
   </div>
 </form>
 
 
 <?php
- var_dump($result);
 $content = ob_get_clean();
 require_once '../template.php';

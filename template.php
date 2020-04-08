@@ -28,7 +28,7 @@
                         <a class="nav-link" href="?p=ajouterfilms">Ajouter un film</a>
                     </li>
                 </ul>
-                <form action="?p=recherche" method="POST" class="form-inline my-2 my-lg-0">
+                <form action="?p=accueil" method="POST" class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" name='recherche' placeholder="Recherche" aria-label="Recherche">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ok</button>
                 </form>

@@ -6,6 +6,7 @@ if(isset($_POST['recherche'])){
     $result = search('');
 }
 
+$cat=nbCat();
 
 ob_start();
 ?>
@@ -15,7 +16,14 @@ ob_start();
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ok</button>
 </form>
 <br>
-<!-- ici la liste de category et leur nombre de films -->
+<div class="row bg-dark">
+    <?php foreach($cat as $inf):?>
+    <div class="col-3 text-center">
+        <a href=""><?=$inf['cat_name'];?> (<?=$inf['nb'];?>)</a>
+    </div>
+    <?php endforeach;?>
+</div>
+<br>
 <div class="row">
 <?php foreach($result as $info):?>
     <div class="card col-3">

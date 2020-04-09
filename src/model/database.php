@@ -92,3 +92,10 @@ function getMovieCount()
 
     return $request->fetch()['nb_movie']; // Fetch retourne un tableau contenant l'index 'nb_movie';
 }
+
+
+function nbCat () {
+    global $pdo;
+    $request = $pdo->query("SELECT cat_name, cat_id,category_cat_id,COUNT(cat_id) as nb FROM movie,category WHERE category.cat_id = movie.category_cat_id GROUP BY cat_id LIMIT 4");
+    return $request->fetchAll();
+}

@@ -22,7 +22,7 @@
                         <a class="nav-link" href="?p=accueil">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?p=categories">Categories</a>
+                        <a class="nav-link" href="?p=catalogue">Catalogue</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?p=ajouterfilms">Ajouter un film</a>

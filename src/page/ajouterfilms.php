@@ -17,27 +17,27 @@ $cat = category();
 <form action="" method="POST">
 <div class="form-group">
     <label for="title">mov_title</label>
-    <input type="text" class="form-control" name="title" id="title" placeholder="title" value="<?= $film['mov_title']??'';  ?>">
+    <input type="text" class="form-control" name="title" id="title" placeholder="title" value="<?= $film['mov_title']??'';  ?>" required>
   </div>
   <div class="form-group">
     <label for="poster">poster</label>
-    <input type="text" class="form-control" name="poster" id="poster" placeholder="poster" value="<?= $film['mov_poster']??'';  ?>">
+    <input type="text" class="form-control" name="poster" id="poster" placeholder="poster" value="<?= $film['mov_poster']??'';  ?>" required>
   </div>
   <div class="form-group">
     <label for="actors">actors</label>
-    <input type="text" class="form-control" name="actors" id="actors" placeholder="actors" value="<?= $film['mov_actors']??'';  ?>">
+    <input type="text" class="form-control" name="actors" id="actors" placeholder="actors" value="<?= $film['mov_actors']??'';  ?>"required>
   </div>
   <div class="form-group">
     <label for="plot">plot</label>
-    <input type="text" class="form-control" name="plot" id="plot" placeholder="plot" value="<?= $film['mov_plot']??'';  ?>">
+    <input type="text" class="form-control" name="plot" id="plot" placeholder="plot" value="<?= $film['mov_plot']??'';  ?>" required>
   </div>
   <div class="form-group">
     <label for="file">file</label>
-    <input type="text" class="form-control" name="files" id="files" placeholder="file" value="<?= $film['mov_file_path']??'';  ?>">
+    <input type="text" class="form-control" name="files" id="files" placeholder="file" value="<?= $film['mov_file_path']??'';  ?>" required>
   </div>
   <div class="form-group">
     <label for="device">device</label>
-    <input type="text" class="form-control" name="device" id="device" placeholder="device" value="<?= $film['mov_device']??'';  ?>">
+    <input type="text" class="form-control" name="device" id="device" placeholder="device" value="<?= $film['mov_device']??'';  ?>" required>
   </div>
   <div class="form-group">
     <label for="Category">Selectionne Category</label>

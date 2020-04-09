@@ -74,3 +74,21 @@ function category(){
     $request = $pdo->query('SELECT * FROM `category`');
     return $request->fetchAll();
 }
+
+
+function getMovieOffset($offset)
+{
+    global $pdo;
+    $request = $pdo->prepare('SELECT * FROM movie LIMIT :offset, 3');
+    $request->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $request->execute();
+
+    return $request->fetchAll();
+}
+function getMovieCount()
+{
+    global $pdo;
+    $request = $pdo->query('SELECT COUNT(*) AS nb_movie FROM movie');
+
+    return $request->fetch()['nb_movie']; // Fetch retourne un tableau contenant l'index 'nb_movie';
+}

@@ -5,6 +5,8 @@ if(isset($_POST['recherche'])){
 }else{
     $result = search('');
 }
+
+
 ob_start();
 ?>
 
@@ -13,6 +15,7 @@ ob_start();
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ok</button>
 </form>
 <br>
+<!-- ici la liste de category et leur nombre de films -->
 <div class="row">
 <?php foreach($result as $info):?>
     <div class="card col-3">

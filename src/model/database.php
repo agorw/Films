@@ -14,7 +14,7 @@ try {
  */
 function search($title){
     global $pdo;
-    $request = $pdo->prepare("SELECT * FROM movie WHERE mov_title LIKE :title ");
+    $request = $pdo->prepare("SELECT * FROM movie WHERE mov_title LIKE :title  ORDER BY `movie`.`mov_id` DESC LIMIT 4");
     $request->execute([':title' => $title.'%']);
     return $request->fetchAll();
 }
